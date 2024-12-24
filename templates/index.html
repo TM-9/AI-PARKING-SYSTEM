@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic License Plate Recognition System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2em 0;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #ddd;
+        }
+
+        main {
+            padding: 20px;
+            background-color: #fff;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        h2 {
+            color: #444;
+            font-size: 1.8em;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        img {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Automatic License Plate Recognition System</h1>
+        <h3>Live Feed & Detected Plates</h3>
+    </header>
+
+    <main>
+        <div>
+            <img src="/video_feed" alt="Video Feed">
+        </div>
+
+        <h2>Detected Plates</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Plate Number</th>
+                <th>Detected Time</th>
+            </tr>
+            {% for plate in plates|reverse %}
+            <tr>
+                <td>{{ plate[0] }}</td>
+                <td>{{ plate[1] }}</td>
+                <td>{{ plate[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 License Plate Detection System</p>
+    </footer>
+</body>
+</html>
+x

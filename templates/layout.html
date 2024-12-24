@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h2>Car Entry and Exit Logs</h2>
+    <h3>Live Camera Feed</h3>
+
+    <<img src="/video_feed" alt="Camera Feed" style="width: 640px; height: 480px;">
+
+
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Car ID</th>
+                <th>License Plate</th>
+                <th>Entry Time</th>
+                <th>Exit Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for car in cars %}
+            <tr>
+                <td>{{ car[0] }}</td>
+                <td>{{ car[1] }}</td>
+                <td>{{ car[2] }}</td>
+                <td>{{ car[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+{% endblock %}
